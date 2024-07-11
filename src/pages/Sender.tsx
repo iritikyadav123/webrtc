@@ -41,7 +41,7 @@ import { useEffect, useRef, useState } from "react";
                 pc?.setRemoteDescription(message.sdp);
              }else if(message.type == 'iceCandidate') {
                if(pc !== null) {
-                pc.addIceCandidate = message.candidate;
+               await pc.addIceCandidate(new RTCIceCandidate(message.candidate));
                }
              }
         }
